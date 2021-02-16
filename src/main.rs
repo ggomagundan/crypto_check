@@ -1,5 +1,7 @@
 use clap::{Arg, App, value_t};
 
+mod models;
+
 fn main() {
     let args = App::new("crypto_check")
         .version(clap::crate_version!())
@@ -10,11 +12,11 @@ fn main() {
             .long("token")
             .help("Token Value")
             .default_value("TOKEN"))
-        .arg(Arg::with_name("speed")
-            .short("s")
-            .long("speed")
-            .value_name("n")
-            .default_value("1")
+        .arg(Arg::with_name("exchange")
+            .short("e")
+            .long("exchange")
+            .value_name("exchange")
+            .default_value("upbit")
             .help("Encoding speed from 1 (best) to 10 (fast but ugly)")
             .takes_value(true))
         .get_matches();
@@ -22,7 +24,7 @@ fn main() {
            println!("Value for input: {}", i);
        }
 
-       if let Some(c) = args.value_of("speed") {
-           println!("Value for config: {}", c);
+       if let Some(ex) = args.value_of("exchange") {
+           println!("Value for config: {}", ex);
        }
 }
