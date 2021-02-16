@@ -6,12 +6,6 @@ tasks:
   - name: Testing
     init: cargo test --all 
   - name: Build
-    init: cargo build
-  - name: Nu
-    init: cargo install --path .
-    command: nu
-github:
-  prebuilds:
-    branches: true
+    init: cargo buildrue
     pullRequestsFromForks: true
     addLabel: prebuilt-in-gitpod
